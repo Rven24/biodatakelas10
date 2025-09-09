@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilku: Data Diri</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap');
+
+        :root {
+            --bg-color: #0b0b0b;
+            --main-color: #00e0ff;
+            --accent-color: #CBDFFF;
+            --text-color: #e0e0e0;
+            --card-bg: #1a1a1a;
+            --border-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Efek Grid Latar Belakang --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            animation: grid-pulse 10s infinite alternate;
+        }
+
+        @keyframes grid-pulse {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.05; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            gap: 25px;
+            grid-template-columns: 1fr;
+        }
+
+        .card, .profile-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+
+        .card:hover, .profile-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 30px var(--main-color), 0 0 50px var(--accent-color);
+            border: 1px solid var(--main-color);
+        }
+
+        .profile-card {
+            display: flex; /* Mengubah menjadi flexbox */
+            justify-content: flex-start; /* Konten dimulai dari kiri */
+            align-items: center; /* Vertikal tengah */
+            text-align: left; /* Teks rata kiri */
+            flex-wrap: wrap; /* Agar responsif pada layar kecil */
+            position: relative; /* Untuk posisi absolute foto */
+            min-height: 180px; /* Agar ada ruang untuk foto */
+            padding-right: 200px; /* Ruang untuk foto di kanan */
+        }
+
+        .profile-pic {
+            width: 120px; /* Ukuran lebih kecil untuk kanan atas */
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid var(--main-color);
+            object-fit: cover;
+            box-shadow: 0 0 20px var(--main-color);
+            animation: halo-glow 3s infinite alternate;
+            position: absolute; /* Posisikan absolut */
+            top: 20px; /* Dari atas */
+            right: 20px; /* Dari kanan */
+            z-index: 10;
+        }
+
+        @keyframes halo-glow {
+            from { box-shadow: 0 0 20px var(--main-color); }
+            to { box-shadow: 0 0 40px var(--main-color); }
+        }
+
+        .profile-info { /* Wrapper baru untuk nama dan judul */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Rata kiri */
+            flex-grow: 1; /* Mengambil sisa ruang */
+        }
+
+        .profile-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem; /* Ukuran font disesuaikan */
+            color: var(--main-color);
+            margin-top: 0; /* Hapus margin top */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--main-color);
+            animation: text-reveal 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            overflow: hidden;
+            white-space: nowrap;
+            width: fit-content; /* Untuk animasi reveal */
+        }
+
+        @keyframes text-reveal {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .profile-title {
+            font-size: 1.2rem; /* Ukuran font disesuaikan */
+            color: var(--accent-color);
+            margin-top: 5px;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fade-in 2s 1.5s forwards;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+
+        .card p, .card ul, .card li {
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0;
+            animation: slide-in 1s forwards;
+        }
+
+        /* Penyesuaian delay animasi agar tidak tumpang tindih dengan animasi profil */
+        .profile-card ~ .card:nth-of-type(1) p { animation-delay: 2.2s; } /* Tentang Diriku */
+        .profile-card ~ .card:nth-of-type(2) li { animation-delay: 2.4s; } /* Kontak */
+        .profile-card ~ .card:nth-of-type(2) li:nth-child(2) { animation-delay: 2.6s; }
+        .profile-card ~ .card:nth-of-type(2) li:nth-child(3) { animation-delay: 2.8s; }
+        .profile-card ~ .card:nth-of-type(3) li { animation-delay: 3.0s; } /* Hobi */
+        .profile-card ~ .card:nth-of-type(3) li:nth-child(2) { animation-delay: 3.2s; }
+        .profile-card ~ .card:nth-of-type(3) li:nth-child(3) { animation-delay: 3.4s; }
+        .profile-card ~ .card:nth-of-type(3) li:nth-child(4) { animation-delay: 3.6s; }
+        .profile-card ~ .card:nth-of-type(4) p { animation-delay: 3.8s; } /* Pendidikan */
+        .profile-card ~ .card:nth-of-type(4) p:nth-child(2) { animation-delay: 4.0s; }
+        .profile-card ~ .card:nth-of-type(4) p:nth-child(3) { animation-delay: 4.2s; }
+
+        @keyframes slide-in {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-list li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list li a:hover {
+            color: var(--main-color);
+            text-shadow: 0 0 5px var(--main-color);
+        }
+
+        ul {
+            list-style-type: '🤖 ';
+            padding-left: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .profile-card {
+                grid-column: span 2;
+                flex-direction: row; /* Kembali ke baris untuk desktop */
+                justify-content: flex-start;
+                align-items: flex-start; /* Teks dimulai dari atas */
+                padding-right: 200px;
+                min-height: 150px; /* Ketinggian minimal kartu profil */
+            }
+
+            .profile-info {
+                margin-left: 0; /* Hapus margin kiri yang mungkin ada */
+            }
+
+            .profile-name {
+                font-size: 3rem;
+            }
+
+            .profile-title {
+                font-size: 1.4rem;
+            }
+
+            .profile-pic {
+                width: 150px; /* Ukuran foto kembali normal untuk desktop */
+                height: 150px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Penyesuaian untuk layar sangat kecil */
+        @media (max-width: 480px) {
+            .profile-pic {
+                position: static; /* Kembali ke posisi normal */
+                margin-bottom: 20px;
+                width: 100px;
+                height: 100px;
+            }
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-right: 30px; /* Hapus padding kanan */
+                min-height: unset;
+            }
+            .profile-info {
+                align-items: center;
+            }
+            .profile-name {
+                font-size: 2rem;
+            }
+            .profile-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <img src="pictures.jpeg" alt="Foto Profil" class="profile-pic">
+            <div class="profile-info">
+                <h1 class="profile-name">Data Diri</h1>
+                <h2 class="profile-title">Nanda yearyztha p.h</h2>
+            </div>
+        </div>
+
+        <div class="card large-card">
+            <h2 class="section-title">Tentang Diriku</h2>
+            <p>Hello minaa san! Namaku nanda yearyztha puteri hidayat,absen 29 dari kelas 10 RPL.aku memiliki personality yang cenderung ke introvert namun tidak anti sosial,aku tertarik dalam memecahkan teka teki, isu politik,seni dan fotografi</p>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Kontak & Alamat</h2>
+            <ul class="contact-list">
+                <li><a href="yearyztha030@gmail.com">Email: yearyztha030@gmail.com</a></li>
+                <li><a href="Hp:085749535780">Hp:085749535780</a></li>
+                <li><a href="Github:ariesthaa"></a></li>
+                <li>Alamat: Jln.raya pasirian no 78,desa sumbersuko, kec.sumbersuko,kab.lumajang</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Hobi</h2>
+            <ul>
+                <li>✨ Cosplay</li>
+                <li>🎮 Bermain game genshin impact</li>
+                <li>🍄 Make something from clay</li>
+            </ul>
+        </div>
+
+        <div class="card large-card">
+            <h2 class="section-title">Pendidikan</h2>
+            <p><strong>SMKN 01 LUMAJANG</strong></p>
+            <p>Jurusan Rekayasa Perangkat Lunak</p>
+            <p>Tahun: 2025 - Sekarang</p>
+            <br>
+            <p><strong>SMPN 01 TEMPEH</strong></p>
+            <p>Tahun: 2022 - 2025</p>
+        </div>
+    </div>
+</body>
+</html>

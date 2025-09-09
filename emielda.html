@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biodata • Emielda Putri Cahaya</title>
+  <meta name="description" content="Halaman biodata sederhana dan modern, responsif, serta siap cetak." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --card: #121318;
+      --muted: #a1a1aa;
+      --text: #e5e7eb;
+      --accent: #4f46e5;
+      --border: #1f2430;
+      --chip: #1f2937;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --muted: #475569;
+        --text: #0f172a;
+        --accent: #4f46e5;
+        --border: #e5e7eb;
+        --chip: #eef2ff;
+      }
+    }
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(79,70,229,.15), transparent 60%),
+                  radial-gradient(1200px 600px at 120% 10%, rgba(16,185,129,.12), transparent 60%),
+                  var(--bg);
+      line-height: 1.6;
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .container{
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 24px;
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 820px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+      overflow: hidden;
+    }
+    .section{ padding: 20px 22px; }
+    .section + .section{ border-top: 1px dashed var(--border); }
+
+    /* header */
+    .header{
+      display: grid; gap: 16px; align-items: center;
+      grid-template-columns: 96px 1fr auto;
+    }
+    @media (max-width: 560px){ .header{ grid-template-columns: 72px 1fr; } }
+    .avatar{
+      width: 96px; height: 96px; border-radius: 16px; object-fit: cover; border: 2px solid var(--border);
+      background: #0f172a;
+    }
+    h1{ font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); margin: 0 0 6px; line-height: 1.2; }
+    .subtitle{ color: var(--muted); margin: 0; }
+    .actions{ display:flex; gap:10px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; cursor:pointer;
+      padding: 10px 14px; border-radius: 12px; border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.06));
+      color: var(--text);
+    }
+    .btn:hover{ filter: brightness(1.08); }
+
+    /* left column */
+    .sidebar .label{ font-weight:600; font-size: .9rem; color: var(--muted); margin-bottom:6px; }
+    .sidebar .value{ background: var(--card); border:1px solid var(--border); border-radius: 12px; padding:10px 12px; }
+    .stack{ display:grid; gap:12px; }
+
+    /* chips */
+    .chips{ display:flex; flex-wrap: wrap; gap:8px; }
+    .chip{ padding:6px 10px; background: var(--chip); border:1px solid var(--border); border-radius:999px; font-size:.9rem; }
+
+    /* list */
+    .list{ display:grid; gap: 16px; }
+    .item .title{ font-weight: 700; }
+    .item .meta{ color: var(--muted); font-size: .95rem; }
+    .item p{ margin: 8px 0 0; }
+
+    /* footer */
+    footer{ text-align:center; color: var(--muted); font-size:.9rem; padding: 18px 0 24px; }
+
+    /* print */
+    @media print{
+      body{ background: white; }
+      .container{ margin:0; }
+      .actions{ display:none; }
+      .card{ box-shadow:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card section">
+      <div class="header">
+        <img class="avatar" src="rrrr.jpeg" alt="Foto Profil" />
+        <div>
+          <h1>Emielda Putri Cahaya</h1>
+          <p class="subtitle">Pelajar SMK • Web Developer Pemula • Domisili: Lumajang</p>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="window.print()" aria-label="Cetak biodata">🖨️ Cetak</button>
+          <a class="btn" href="#kontak" aria-label="Loncat ke kontak">✉️ Kontak</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top: 24px;">
+      <!-- Sidebar -->
+      <aside class="card section sidebar">
+        <div class="stack">
+          <div>
+            <div class="label">Tanggal Lahir</div>
+            <div class="value">10 Mei 2010</div>
+          </div>
+          <div>
+            <div class="label">Alamat</div>
+            <div class="value">Jl. Panggung Gembira, RT.036/RW.O11</div>
+          </div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:emailanda@example.com">emieldaputricahaya17xrpl@gmail.com
+            </a></div>
+          </div>
+          <div>
+            <div class="label">Telepon</div>
+            <div class="value"><a href="tel:+6281234567890">+62 851-2961-9383</a></div>
+          </div>
+          <div>
+            <div class="label">Keahlian</div>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Canva</span>
+              <span class="chip">MS Office</span>
+            </div>
+          </div>
+          <div>
+            <div class="label">Hobi</div>
+            <div class="chips">
+              <span class="chip">Running</span>
+              <span class="chip">Futsal</span>
+              <span class="chip">Eat</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="card">
+        <section class="section">
+          <h2 style="margin:0 0 8px">Tentang Saya</h2>
+          <p>Saya adalah pelajar SMK yang tertarik pada pengembangan web dan desain antarmuka. Terbiasa bekerja kolaboratif, cepat belajar hal baru, dan senang memecahkan masalah melalui teknologi.</p>
+        </section>
+
+        <section class="section">
+          <h2 style="margin:0 0 8px">Pendidikan</h2>
+          <div class="list">
+            <div class="item">
+              <div class="title">SMK Negeri 1 Lumajang — Rekayasa Perangkat Lunak</div>
+              <div class="meta">2025 – sekarang</div>
+              <p>Aktif di ekstrakurikuler PMR, juara 2 Lomba PPGD tingkat SMP antar sekolah.</p>
+            </div>
+            <div class="item">
+              <div class="title">SMP Negeri 1 Randuagung</div>
+              <div class="meta">2022 – 2025</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 style="margin:0 0 8px">Pengalaman / Proyek</h2>
+          <div class="list">
+            <div class="item">
+              <div class="title">Website Portofolio Pribadi</div>
+              <div class="meta">2025 — HTML, CSS, JS</div>
+              <p>Membangun portofolio responsif untuk memamerkan karya dan sertifikat. <a href="#">Lihat proyek</a></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 style="margin:0 0 8px">Sertifikat</h2>
+          <ul style="margin:0 0 0 20px">
+            <li>Peraih Medali Emas — Olimpiade Belajar Berprestasi (01 Oktober 2024)</li>
+            <li>Peraih Medali Emas — Olimpiade Siswa Cerda Indonesia (13 Oktober 2024)</li>
+          </ul>
+        </section>
+
+        <section class="section" id="kontak">
+          <h2 style="margin:0 0 8px">Kontak</h2>
+          <p>Terbuka untuk question & answer. Hubungi saya via email atau WhatsApp.</p>
+          <class="actions" style="margin-top:8px">
+            <a class="btn" href="mailto:emieldaputricahaya17xrpl@gmail.com">📧 Email</a>
+            <a class="btn" href="https://wa.me/6285129619383" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Emielda Putri Cahaya — Dibuat dengan HTML & CSS
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
