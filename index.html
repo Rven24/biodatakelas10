@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Tombol Navigasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Galeri Tombol untuk Mengarahkan ke File Lain</h1>
+    <p>Silakan klik tombol di bawah ini untuk melihat konten terkait.</p>
+
+    <div class="button-grid">
+        <a href="aurel.html" class="button">Aurel</a>
+        <a href="akira.html" class="button">Akira</a>
+        <a href="aisyah.html" class="button">Aisyah</a>
+        <a href="emielda.html" class="button">Emielda</a>
+        <a href="nanda.html" class="button">Nanda</a>
+        <a href="nata.html" class="button" >Nata</a>
+        <a href="risma.html" class="button" >Risma</a>
+        <a href="putri.html" class="button" >Putri</a>
+        <a href="valen.html" class="button" >Valen</a>
+        <a href="/bima/index.html" class="button" >Bima</a>
+        <a href="/ilham/index.html" class="button" >Ilham</a>
+    </div>
+</div>
+
+</body>
+</html>
