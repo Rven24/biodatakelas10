@@ -3,84 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #0056b3;
-            margin-bottom: 20px;
-        }
-
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Galeri Website Tugas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans flex flex-col items-center justify-center min-h-screen p-4 transition-colors duration-500">
 
-<div class="container">
-    <h1>Ini Website Untuk Tugas Kelas 10</h1>
-    <p>Silakan klik tombol di bawah ini untuk melihat dari kelas 10 .</p>
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 max-w-5xl w-full text-center border border-gray-200 dark:border-gray-700 transition-colors duration-500">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-2 tracking-tight">
+            Galeri Tugas Website
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8">
+            Karya siswa/i kelas 10, silakan pilih nama di bawah ini.
+        </p>
 
-    <div class="button-grid">
-        <a href="aurel.html" class="button">Aurel</a>
-        <a href="akira.html" class="button">Akira</a>
-        <a href="aisyah.html" class="button">Aisyah</a>
-        <a href="/imelda/emielda.html" class="button">Emielda</a>
-        <a href="/nanda/nanda.html" class="button">Nanda</a>
-        <a href="nata.html" class="button" >Nata</a>
-        <a href="/kharisma/risma.html" class="button" >Risma</a>
-        <a href="putri.html" class="button" >Putri</a>
-        <a href="valen.html" class="button" >Valen</a>
-         <a href="maulanaiqbal.html" class="button" >Iqbal</a>
-        <a href="/bima/index.html" class="button" >Bima</a>
-        <a href="/dicopradana/index.html" class="button" >Dico</a>
-        <a href="/RizkyPutra/index.html" class="button" >Rizky P</a>
-        <a href="/ilham/index.html" class="button" >Ilham</a>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            <a href="aurel.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Aurel</span>
+            </a>
+            <a href="akira.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Akira</span>
+            </a>
+            <a href="aisyah.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Aisyah</span>
+            </a>
+            <a href="/imelda/emielda.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Emielda</span>
+            </a>
+            <a href="/nanda/nanda.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Nanda</span>
+            </a>
+            <a href="nata.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Nata</span>
+            </a>
+            <a href="/kharisma/risma.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Risma</span>
+            </a>
+            <a href="putri.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Putri</span>
+            </a>
+            <a href="valen.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Valen</span>
+            </a>
+            <a href="maulanaiqbal.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Iqbal</span>
+            </a>
+            <a href="/bima/index.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Bima</span>
+            </a>
+            <a href="/dicopradana/index.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Dico</span>
+            </a>
+            <a href="/RizkyPutra/index.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Rizky P</span>
+            </a>
+            <a href="/ilham/index.html" class="group relative flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-700 rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-blue-500 dark:hover:bg-blue-600 transform hover:-translate-y-2 hover:shadow-lg">
+                <span class="text-xl font-semibold group-hover:text-white transition-colors duration-300">Ilham</span>
+            </a>
+        </div>
     </div>
-</div>
 
 </body>
 </html>
