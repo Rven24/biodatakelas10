@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Diri - maulana iqbal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .profile-img {
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #3B82F6;
+            border-radius: 50%;
+        }
+        .dark-mode {
+            background: #1F2937;
+            color: #F9FAFB;
+        }
+        .dark-mode .card {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 light-mode">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-12 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
+            <div class="container mx-auto max-w-4xl">
+                <h1 class="text-5xl font-extrabold mb-2">Maulana Iqbal</h1>
+                <p class="text-xl"></p>
+                <button id="theme-toggle" class="mt-4 bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition">Tentang saya</button>
+            </div>
+            <div class="mt-6 md:mt-0">
+            </div>
+        </div>
+    </header>
+
+    <!-- Bio Section -->
+    <section class="py-16 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-6 text-center">Tentang Saya</h2>
+            <p class="text-lg leading-relaxed mb-8">
+               nama saya maulana iqbal arief susilo,saya adalah seorang pelajar di SMKN 01 LMJ.dan saya masuk jurusan rekayasa perangkat lunak 
+               hobi saya adalah mancing dan bermain game 
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-lg shadow-md bg-blue-50">
+                    <h3 class="font-semibold text-xl mb-2">Umur</h3>
+                    <p>17 thn</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md bg-blue-50">
+                    <h3 class="font-semibold text-xl mb-2">Lokasi</h3>
+                    <p>lmj jawa timur</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md bg-blue-50">
+                    <h3 class="font-semibold text-xl mb-2">Email</h3>
+                    <p>alex.rivera@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-16 px-6 bg-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-6 text-center">Keahlian</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-lg shadow-md bg-white">
+                    <h3 class="font-semibold text-xl mb-4">mancing</h3>
+                    <ul class="space-y-2">
+                        <li>mancing wader</li>
+                        <li>mancing mujaer</li>
+                        <li>mancing lele </li>
+                    </ul>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md bg-white">
+                    <h3 class="font-semibold text-xl mb-4">bermain game</h3>
+                    <ul class="space-y-2">
+                        <li>ML</li>
+                        <li>COC</li>
+                        <li>FREE FIRE</li>
+                    </ul>
+                </div>
+            </div>
+                   
+
+    <!-- Experience Section -->
+    <section class="py-16 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold mb-6 text-center">Pengalaman</h2>
+            <div class="space-y-8">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">MOBILE LEGEND</h3>
+                    <p>pernah ikut lomba antar kelas dan juara 1
+                </p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">mancing lele</h3>
+                    <p>Berpartisipasi dalam lomba mancing di tambak dan mendapatkan lele yg berhadiah </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6 px-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Maulana iqbal. Dibuat dengan  pokok gawe hehe.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
+
