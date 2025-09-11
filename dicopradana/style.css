@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f7a81b;
+  color: #222;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.title h2 {
+  color: red;
+  font-weight: 800;
+  margin: 0;
+  font-size: 28px;
+}
+
+.title h1 {
+  color: #003366;
+  font-size: 48px;
+  margin: 0;
+}
+
+.divider {
+  border-bottom: 3px dashed #333;
+  margin: 15px 0;
+}
+
+p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+h3 {
+  margin-top: 20px;
+  color: #003366;
+}
+
+ul {
+  margin: 8px 0 15px 20px;
+}
+
+.contact ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.text {
+  flex: 1;
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photo img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+  .photo {
+    margin-top: 30px;
+  }
+  .title h1 {
+    font-size: 36px;
+  }
+}
