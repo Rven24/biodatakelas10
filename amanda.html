@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Penyihir - Hogwarts</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            min-height: 100vh;
+            color: #f4f4f4;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.8" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="60" r="1.2" fill="rgba(255,255,255,0.06)"/><circle cx="70" cy="80" r="0.6" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="80" r="0.9" fill="rgba(255,255,255,0.07)"/></svg>') repeat;
+            pointer-events: none;
+            animation: twinkle 4s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hogwarts-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .hogwarts-crest {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #740001, #ae0001, #d3a625, #eee117);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.4); }
+        }
+
+        .school-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+        }
+
+        .motto {
+            font-style: italic;
+            color: #c0c0c0;
+            font-size: 1.1em;
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(45, 45, 45, 0.9));
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, #f4e04d, #d4af37, #b8941f);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderShine 3s infinite linear;
+        }
+
+        @keyframes borderShine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 30px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #740001, #d3a625);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            border: 4px solid #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .profile-info h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2em;
+            color: #d4af37;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .house-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(45deg, #740001, #ae0001);
+            color: #d4af37;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1em;
+            border: 2px solid #d4af37;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        .info-section h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-section h3::before {
+            content: '⚡';
+            font-size: 1.2em;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #c0c0c0;
+        }
+
+        .info-value {
+            color: #f4f4f4;
+            font-weight: 400;
+        }
+
+        .spells-section {
+            background: linear-gradient(135deg, rgba(116, 0, 1, 0.2), rgba(45, 45, 45, 0.9));
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .spells-section h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .spell-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .spell-tag {
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(244, 224, 77, 0.2));
+            color: #d4af37;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .spell-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.4), rgba(244, 224, 77, 0.4));
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #888;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .school-name {
+                font-size: 2em;
+            }
+
+            .profile-info h1 {
+                font-size: 1.8em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hogwarts-header">
+            <div class="hogwarts-crest">🏰</div>
+            <h1 class="school-name">biodata pribadi</h1>
+            <p class="motto">"Amanda Putri Sulaeman"</p>
+        </header>
+
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar">🧙‍♂️</div>
+                <div class="profile-info">
+                    <h1>Amanda</h1>
+                    <div class="house-badge">🦁 Gryffindor</div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-section">
+                    <h3>Informasi Pribadi</h3>
+                    <div class="info-item">
+                        <span class="info-label">Nama Lengkap</span>
+                        <span class="info-value">Amanda Putri Sulaeman</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tanggal Lahir</span>
+                        <span class="info-value">23 Maret 2009</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Asal</span>
+                        <span class="info-value">Tasikmalaya,Jabar</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status Darah</span>
+                        <span class="info-value">O</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>Sekolah</h3>
+                    <div class="info-item">
+                        <span class="info-label">Smk 1 Lumajang  </span>
+                        <span class="info-value">X RPL</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tahun</span>
+                        <span class="info-value">Tahun ke-57</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Mata Pelajaran Favorit</span>
+                        <span class="info-value">Matematika</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Mata Pelajarin Tidak Favorid</span>
+                        <span class="info-value">Bahasa inggis,Bahasa jawa</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>ALAMAT RUMAH</h3>
+                    <div class="info-item">
+                        <span class="info-label">Jln</span>
+                        <span class="info-value">Merdeka Bodang</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">RT</span>
+                        <span class="info-value">031</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">RW</span>
+                        <span class="info-value">001</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">KECAMATAN</span>
+                        <span class="info-value">Padang</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>data diri</h3>
+                    <div class="info-item">
+                        <span class="info-label">TINGGI BADAN</span>
+                        <span class="info-value">158</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">BERAT BADAN</span>
+                        <span class="info-value">38</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">MUGGLE HPOENE</span>
+                        <span class="info-value">+081246704339</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">EMAIL MUGGLE</span>
+                        <span class="info-value">amandaasulaeman23@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spells-section">
+                <h3>✨ asal sekolah</h3>
+                <div class="spell-list">
+                    <div class="spell-tag">TK darmawanita</div>
+                    <div class="spell-tag">SDN Karangsari 02</div>
+                    <div class="spell-tag">SMPN 01 Sukodono </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>"It is our choices that show what we truly are, far more than our abilities." - Albus Dumbledore</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animasi interaktif untuk spell tags
+        document.querySelectorAll('.spell-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 8px 25px rgba(212, 175, 55, 0.6)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 5px 15px rgba(212, 175, 55, 0.3)';
+                }, 200);
+            });
+        });
+
+        // Animasi sparkle effect saat hover pada avatar
+        document.querySelector('.avatar').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1) rotate(5deg)';
+        });
+
+        document.querySelector('.avatar').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    </script>
+</body>
+</html>
+ 
