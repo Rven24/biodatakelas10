@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunia Kucing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0px #fff, 6px 6px 10px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            animation: bounce 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .cat-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cat-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .cat-emoji {
+            font-size: 4em;
+            margin-bottom: 15px;
+            display: block;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .cat-card h3 {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .cat-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .floating-cats {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-cat {
+            position: absolute;
+            font-size: 2em;
+            animation: float 15s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(-100px) translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateX(100vw) translateY(-100px) rotate(360deg);
+            }
+        }
+
+        .paw-prints {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            font-size: 1.5em;
+            color: rgba(255, 107, 107, 0.3);
+            animation: fade 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes fade {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.5; }
+        }
+
+        .interactive-section {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .meow-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .meow-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+
+        .cat-facts {
+            background: rgba(255, 182, 193, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .cat-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cat-card {
+                padding: 20px;
+            }
+        }
+
+        .heart {
+            color: #ff6b6b;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-cats">
+        <div class="floating-cat" style="left: 10%; animation-delay: 0s;">🐱</div>
+        <div class="floating-cat" style="left: 30%; animation-delay: 3s;">😺</div>
+        <div class="floating-cat" style="left: 50%; animation-delay: 6s;">🐈</div>
+        <div class="floating-cat" style="left: 70%; animation-delay: 9s;">😸</div>
+        <div class="floating-cat" style="left: 90%; animation-delay: 12s;">🐾</div>
+    </div>
+
+    <div class="paw-prints">
+        🐾 🐾 🐾<br>
+        🐾 🐾<br>
+        🐾
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🐱 bio data diri🐱</h1>
+            <p class="subtitle"> <span class="heart">❤️</span></p>
+        </header>
+
+        <div class="cat-grid">
+            <div class="cat-card">
+                <span class="cat-emoji">😺</span>
+                <h3>informasi pribadi</h3>
+                <p>nama:balqis askia nuril ilmia</p>
+                <p>tanggal lahir:lumajang,30 desember 2009</p>
+                <p>asal:lumajang</p>
+            </div>
+
+            <div class="cat-card">
+                <span class="cat-emoji">😸</span>
+                <h3>asal sekolah</h3>
+                <p>sd citrodiwangsan 01 lumajang</p>
+                <P>smp negri 03 lumajang</P>
+                <p>smk negeri 1 lumajang</p>
+            </div>
+
+            <div class="cat-card">
+                <span class="cat-emoji">😻</span>
+                <h3>alamat rumah</h3>
+                <p>jl.imam suja'i</p>
+                <p>rt:001</p>
+                <p>rw:003</p>
+                <p>kecamatan:lumajang</p>
+            </div>
+
+            <div class="cat-card">
+                <span class="cat-emoji">🙀</span>
+                <h3>data diri</h3>
+                <p> tinggi badan:153</p>
+                <p>berat badan:36</p>
+                <p>status darah:o</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <h2>🎮 kontak 🎮</h2>
+            <button class="meow-button" onclick="playMeow()">🐱 081357128231</button>
+            <button class="meow-button" onclick="showCatFact()">📚 html & css</button>
+            <button class="meow-button" onclick="petCat()">🤚 balqisaskianurililmiaxrpl12@gmail.com</button>
+            
+            <div class="cat-facts" id="catFact" style="display: none;">
+                <h4>💡 Tahukah Kamu?</h4>
+                <p id="factText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const catFacts = [
+            "Kucing bisa tidur hingga 16 jam sehari! 😴",
+            "Kucing memiliki 32 otot di setiap telinga mereka 👂",
+            "Kucing tidak bisa merasakan rasa manis 🍯",
+            "Kelompok kucing disebut 'clowder' 🐱🐱🐱",
+            "Kucing berputar saat jatuh untuk mendarat dengan kaki mereka 🤸",
+            "Kumis kucing membantu mereka mengetahui apakah mereka bisa melewati celah sempit 📏",
+            "Kucing berkomunikasi dengan manusia terutama melalui mengeong 🗣️",
+            "Mata kucing yang bersinar di malam hari disebabkan oleh lapisan reflektif ✨"
+        ];
+
+        function playMeow() {
+            const meows = ["Meong!", "Miau~", "Nyaa~", "Meow!", "Mew mew!"];
+            const randomMeow = meows[Math.floor(Math.random() * meows.length)];
+            
+            // Create floating meow text
+            const meowText = document.createElement('div');
+            meowText.textContent = randomMeow;
+            meowText.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 3em;
+                color: #ff6b6b;
+                pointer-events: none;
+                z-index: 1000;
+                animation: meowFloat 2s ease-out forwards;
+            `;
+            
+            // Add animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes meowFloat {
+                    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+                    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+                    100% { transform: translate(-50%, -50%) scale(1) translateY(-100px); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(meowText);
+            
+            setTimeout(() => {
+                document.body.removeChild(meowText);
+                document.head.removeChild(style);
+            }, 2000);
+        }
+
+        function showCatFact() {
+            const factDiv = document.getElementById('catFact');
+            const factText = document.getElementById('factText');
+            const randomFact = catFacts[Math.floor(Math.random() * catFacts.length)];
+            
+            factText.textContent = randomFact;
+            factDiv.style.display = 'block';
+            factDiv.style.animation = 'none';
+            factDiv.offsetHeight; // Trigger reflow
+            factDiv.style.animation = 'bounce 0.5s ease';
+        }
+
+        function petCat() {
+            // Create heart animation
+            for(let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.textContent = '❤️';
+                    heart.style.cssText = `
+                        position: fixed;
+                        left: ${Math.random() * window.innerWidth}px;
+                        top: ${Math.random() * window.innerHeight}px;
+                        font-size: 2em;
+                        pointer-events: none;
+                        z-index: 1000;
+                        animation: heartFloat 3s ease-out forwards;
+                    `;
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(heart);
+                    }, 3000);
+                }, i * 200);
+            }
+            
+            // Add heart float animation
+            if (!document.getElementById('heartStyle')) {
+                const style = document.createElement('style');
+                style.id = 'heartStyle';
+                style.textContent = `
+                    @keyframes heartFloat {
+                        0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                        50% { transform: scale(1) rotate(180deg); opacity: 1; }
+                        100% { transform: scale(0) rotate(360deg) translateY(-200px); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Add some sparkle effects on page load
+        window.addEventListener('load', function() {
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.cssText = `
+                    position: fixed;
+                    left: ${Math.random() * window.innerWidth}px;
+                    top: ${Math.random() * window.innerHeight}px;
+                    font-size: 1.5em;
+                    pointer-events: none;
+                    z-index: -1;
+                    animation: sparkleFloat 4s linear forwards;
+                    opacity: 0.6;
+                `;
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    if (document.body.contains(sparkle)) {
+                        document.body.removeChild(sparkle);
+                    }
+                }, 4000);
+            }, 3000);
+        });
+
+        // Add sparkle animation
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
+            @keyframes sparkleFloat {
+                0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+                100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(sparkleStyle);
+    </script>
+</body>
+</html>
